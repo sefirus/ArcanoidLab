@@ -1,5 +1,5 @@
 import pygame
-import Ball
+from Ball import Ball
 
 
 class BlockBase(pygame.Rect):
