@@ -1,3 +1,4 @@
+import pygame
 from BlockBase import BlockBase
 
 
@@ -7,5 +8,11 @@ class Paddle(BlockBase):
         self.height = height
         self.speed = speed
         super().__init__(screen_w // 2 - width // 2, screen_h - height - 10, width, height)
+
+    def process_keys(self, key: pygame.key, screen_width: int):
+        if key[pygame.K_LEFT] and self.left > 0:
+            self.left -= self.speed
+        if key[pygame.K_RIGHT] and self.right < screen_width:
+            self.right += self.speed
 
     pass
