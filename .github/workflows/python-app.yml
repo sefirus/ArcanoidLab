@@ -41,7 +41,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --html=tests_report.html \
-         --cov=./ --cov-report html tests/
+         --cov=tests/ --cov-report html tests/
     - name: Upload pytest test results
       uses: actions/upload-artifact@v3
       with:
