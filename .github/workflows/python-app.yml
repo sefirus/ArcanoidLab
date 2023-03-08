@@ -40,8 +40,8 @@ jobs:
         path: lint-report/
     - name: Test with pytest
       run: |
-        pytest --html=tests_report.html \
-         --cov=./ ./
+        python -m pytest tests/ --html=tests_report.html \
+         --cov=./
         coverage html -d coverage_report/
     - name: Upload pytest test results
       uses: actions/upload-artifact@v3
