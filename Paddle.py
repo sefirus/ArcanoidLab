@@ -1,3 +1,7 @@
+from typing import Sequence
+import pygame
+
+from Ball import Ball
 from BlockBase import BlockBase
 
 
@@ -32,5 +36,28 @@ class Paddle(BlockBase):
         self.height = height
         self.speed = speed
         super().__init__(screen_w // 2 - width // 2, screen_h - height - 10, width, height)
+
+    def process_keys(self, key: Sequence[bool], screen_width: int):
+        """Update the paddle state based on the given user input.
+
+            Args:
+                key (pygame.key): The current state of the keyboard keys.
+                screen_width (int): The width of the game screen, used to limit paddle movement.
+        """
+        if key[pygame.K_LEFT] and self.left > 0:
+            self.left -= self.speed
+        if key[pygame.K_RIGHT] and self.right < screen_width:
+            self.right += self.speed
+
+    def check_paddle_collision(self, ball: Ball):
+        """Check if the ball collides with the given paddle and update the ball states accordingly.
+            Args:
+                ball (Ball): The ball object to check for collision.
+
+            Returns:
+                None: This method does not return anything, it only updates the paddle and/or ball states.
+        """
+        if ball.colliderect(self) and ball.direction_y > 0:
+            self.process_collision(ball)
 
     pass
