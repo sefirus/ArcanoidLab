@@ -57,7 +57,8 @@ class Ball(pygame.Rect):
             self.direction_y = -self.direction_y
         if self.bottom > screen_height:
             print('Game over!')
-            exit()
+            return True
+        return False
 
     def move_to_next_frame(self):
         """Update the ball position based on its speed and direction.

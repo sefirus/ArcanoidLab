@@ -76,7 +76,8 @@ class Game:
             # ball movement
             self.ball.move_to_next_frame()
             # collision with bounds
-            self.ball.check_bounds_collision(Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT)
+            if self.ball.check_bounds_collision(Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT):
+                exit()
             # collision with blocks
             self.process_blocks_collisions()
             self.paddle.process_collision(self.ball)
