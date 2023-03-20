@@ -48,7 +48,8 @@ class Ball(pygame.Rect):
             screen_height (int): The height of the game screen in pixels.
 
         Returns:
-            None: This method does not return anything, it only updates the ball's state.
+            bool: Returns True if the ball collides with the bottom of the screen, indicating that the game is over.
+                  Otherwise, returns False
         """
         if self.centerx < self.radius - self.speed \
                 or self.centerx > screen_width - self.radius + self.speed:
