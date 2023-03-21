@@ -29,7 +29,7 @@ class TestBlock(unittest.TestCase):
         self.ball.centery = -1
         self.ball.direction_y = 1
         self.ball.check_bounds_collision(1200, 1200)
-        self.assertEqual(self.ball.direction_y, -1)
+        self.assertEqual(self.ball.direction_y, 100)
 
     def test_move_x_negative_direction(self):
         self.ball.direction_x = -1
